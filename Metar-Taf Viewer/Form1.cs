@@ -155,13 +155,15 @@ namespace Metar_Taf_Viewer
         {
             //Calculate settings for altitude at destination
             /*
-             * var values = MyCoolFunction();
+             * var values = MyFunction();
                var firstValue = values.Item1;
                var secondValue = values.Item2;
                var thirdValue = values.Item3;
+
+                (string, string, string)MyFunction()
              */
 
-           var values = altimeter.Calculate_altimeter(txtbx_present_pressure.Text, txtbx_present_altitude.Text, txtbx_to_altitude.Text);
+            var values = altimeter.Calculate_altimeter(txtbx_present_pressure.Text, txtbx_present_altitude.Text, txtbx_to_altitude.Text);
 
             var firstValue = values.Item1;
             var secondValue = values.Item2;
