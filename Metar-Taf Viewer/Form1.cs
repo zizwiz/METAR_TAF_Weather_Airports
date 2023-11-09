@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using Metar_Taf_Viewer.navigation;
 
 namespace Metar_Taf_Viewer
 {
@@ -11,6 +12,7 @@ namespace Metar_Taf_Viewer
         {
             InitializeComponent();
             Resize += new EventHandler(Form_Resize);
+            //webView_browser.NavigationStarting += EnsureHttps;
         }
 
         private void Form_Resize(object sender, EventArgs e)
@@ -45,16 +47,36 @@ namespace Metar_Taf_Viewer
             webView_weather_bbc.CoreWebView2.Navigate("https://www.bbc.co.uk/weather/2653941");
             webView_synoptic.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
 
-
+            cmbobx_airports.SelectedIndex = 0;
         }
 
         private void btn_navigate_to_Click(object sender, EventArgs e)
         {
-            if (webView_browser != null && webView_browser.CoreWebView2 != null)
+            Navigation.NavigateTo(txtbx_navigate_to_url.Text, webView_browser);
+        }
+
+        private void txtbx_navigate_to_url_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)
             {
-                webView_browser.CoreWebView2.Navigate(txtbx_navigate_to_url.Text);
+                Navigation.NavigateTo(txtbx_navigate_to_url.Text, webView_browser);
             }
         }
+
+        //private void NavigateTo()
+        //{
+        //    if (txtbx_navigate_to_url.Text.Substring(0, 5) == "https")
+        //    {
+        //        if (webView_browser != null && webView_browser.CoreWebView2 != null)
+        //        {
+        //            webView_browser.CoreWebView2.Navigate(txtbx_navigate_to_url.Text);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MsgBox.Show("The URL needs to start with https://", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void rdobtn_cambridge_CheckedChanged(object sender, EventArgs e)
         {
@@ -121,5 +143,21 @@ namespace Metar_Taf_Viewer
             return uri.Segments.Last().TrimEnd('/');
         }
 
+        private void cmbobx_airports_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            webView_browser.CoreWebView2.Navigate("https://metar-taf.com/" + 
+                                                  airport.GetMetar(cmbobx_airports.Text));
+        }
+
+
+
+        //void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs args)
+        //{
+        //    String uri = args.Uri;
+        //    if (!uri.StartsWith("https://"))
+        //    {
+        //        args.Cancel = true;
+        //    }
+        //}
     }
 }

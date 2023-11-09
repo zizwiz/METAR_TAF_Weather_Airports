@@ -56,6 +56,7 @@ namespace Metar_Taf_Viewer
             this.rdobtn_cambridge = new System.Windows.Forms.RadioButton();
             this.btn_navigate_to = new System.Windows.Forms.Button();
             this.txtbx_navigate_to_url = new System.Windows.Forms.TextBox();
+            this.cmbobx_airports = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -311,6 +312,7 @@ namespace Metar_Taf_Viewer
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.cmbobx_airports);
             this.panel3.Controls.Add(this.grpbx_towns);
             this.panel3.Controls.Add(this.btn_navigate_to);
             this.panel3.Controls.Add(this.txtbx_navigate_to_url);
@@ -355,7 +357,7 @@ namespace Metar_Taf_Viewer
             // 
             // btn_navigate_to
             // 
-            this.btn_navigate_to.Location = new System.Drawing.Point(1102, 17);
+            this.btn_navigate_to.Location = new System.Drawing.Point(1053, 17);
             this.btn_navigate_to.Name = "btn_navigate_to";
             this.btn_navigate_to.Size = new System.Drawing.Size(132, 44);
             this.btn_navigate_to.TabIndex = 1;
@@ -365,10 +367,289 @@ namespace Metar_Taf_Viewer
             // 
             // txtbx_navigate_to_url
             // 
-            this.txtbx_navigate_to_url.Location = new System.Drawing.Point(642, 26);
+            this.txtbx_navigate_to_url.Location = new System.Drawing.Point(594, 26);
             this.txtbx_navigate_to_url.Name = "txtbx_navigate_to_url";
             this.txtbx_navigate_to_url.Size = new System.Drawing.Size(429, 26);
             this.txtbx_navigate_to_url.TabIndex = 0;
+            this.txtbx_navigate_to_url.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_navigate_to_url_KeyPress);
+            // 
+            // cmbobx_airports
+            // 
+            this.cmbobx_airports.FormattingEnabled = true;
+            this.cmbobx_airports.Items.AddRange(new object[] {
+            "AAC Middle Wallop",
+            "Aberdeen Airport",
+            "Aberporth Airport",
+            "Albourne",
+            "Alderney Airport",
+            "Andrewsfield Aerodrome",
+            "Anglesey Airport",
+            "Ascot Racecourse Heliport",
+            "Ashcroft",
+            "Audley End Airfield",
+            "Aylesbury",
+            "Bagby Airfield",
+            "Ballykelly",
+            "Barra Airport",
+            "Barrow/Walney Island Airport",
+            "Beccles Airfield",
+            "Bedford Aerodrome",
+            "Belfast International Airport",
+            "Bembridge Airport",
+            "Benbecula Airport",
+            "Beverley/Linley Hill Airfield",
+            "Bicester Airfield",
+            "Birmingham Airport",
+            "Blackbushe Airport",
+            "Blackpool Airport",
+            "Bodmin Aerodrome",
+            "Bourn Airfield",
+            "Bournemouth Airport",
+            "Breighton Aerodrome",
+            "Brimpton",
+            "Bristol Airport",
+            "Brooklands",
+            "Brough Aerodrome",
+            "Bruntingthorpe Aerodrome",
+            "Caernarfon Airport",
+            "Cambridge City Airport",
+            "Campbeltown Airport ",
+            "Cardiff Airport",
+            "Cardiff Heliport",
+            "Carlisle Lake District Airport",
+            "Castle Mill Airfield",
+            "Chalgrove Airfield",
+            "Challock Airfield",
+            "Cheltenham Racecourse Heliport",
+            "Chester Hawarden Airport",
+            "Chichester/Goodwood Airport",
+            "City Airport & Manchester Heliport",
+            "City of Derry Airport",
+            "Clacton Airport",
+            "Colerne",
+            "Coll Airport",
+            "Colonsay Airport",
+            "Compton Abbas Airfield",
+            "Cotswold Airport",
+            "Cottesmore",
+            "Coventry Airport",
+            "Cranfield Airport",
+            "Crosland Moor Airfield",
+            "Crowfield Airfield",
+            "Culter Heliport",
+            "Cumbernauld Airport",
+            "Damyns Hall Aerodrome",
+            "Deanland Lewes",
+            "Denham Aerodrome",
+            "Derby Airfield",
+            "Doncaster Sheffield Airport",
+            "Dundee Airport",
+            "Dunkeswell Aerodrome",
+            "Dunsfold Aerodrome",
+            "Duxford Aerodrome",
+            "Eaglescott Airfield",
+            "Earls Colne Airfield",
+            "East Midlands Airport",
+            "Eday Airport",
+            "Edinburgh Airport",
+            "Elmsett Airfield",
+            "Elstree Aerodrome",
+            "Elvington Airfield",
+            "Enniskillen",
+            "Enstone Airfield",
+            "Exeter Airport",
+            "Fair Isle Airport",
+            "Fairoaks Airport",
+            "Farnborough Airport",
+            "Farthing Corner",
+            "Fenland Airfield",
+            "Fife Airport",
+            "Filton",
+            "Fishburn Airfield",
+            "Fowlmere Airfield",
+            "Full Sutton Airfield",
+            "George Best Belfast City Airport",
+            "Glasgow Airport",
+            "Glasgow City Heliport",
+            "Glasgow Prestwick Airport",
+            "Gloucestershire Airport",
+            "Goodwood Racecourse Heliport",
+            "Great Yarmouth",
+            "Guernsey Airport",
+            "Haverfordwest Airport",
+            "Headcorn Aerodrome",
+            "Henstridge Airfield",
+            "Hinton-in-the-Hedges Airfield",
+            "Holyhead Heliport",
+            "Hucknall",
+            "Humberside Airport",
+            "Inverness Airport",
+            "Islay Airport",
+            "Isle of Man Airport",
+            "Isle of Skye",
+            "Isle of Wight/Sandown Airport",
+            "Jersey Airport",
+            "Kinloss Barracks",
+            "Kirkwall Airport",
+            "Land\'s End Airport",
+            "Langford Lodge",
+            "Lasham Airfield",
+            "Leconfield",
+            "Lee on Solent",
+            "Leeds Bradford Airport",
+            "Leeds East Airport",
+            "Leeds Heliport",
+            "Leicester Airport",
+            "Leuchars Station",
+            "Little Gransden Airfield",
+            "Liverpool John Lennon Airport",
+            "Llanbedr",
+            "Llanbedr Airport",
+            "London Biggin Hill Airport",
+            "London City Airport",
+            "London Gatwick Airport",
+            "London Heathrow Airport",
+            "London Luton",
+            "London Oxford Airport",
+            "London Southend Airport",
+            "London Stansted Airport",
+            "London Westland Heliport",
+            "Long Marston",
+            "Longside",
+            "Lydd Airport",
+            "Manchester",
+            "Manchester Airport",
+            "Manston Airport",
+            "Marshland",
+            "Maypole",
+            "MoD Boscombe Down",
+            "MOD St Athan",
+            "Netheravon Airfield",
+            "Netherthorpe Airfield",
+            "Newcastle International Airport",
+            "Newmarket Heath",
+            "Newquay Airport / RAF St Mawgan",
+            "Newtownards Airport",
+            "North Ronaldsay Airport",
+            "North Weald Airfield",
+            "Norwich Airport",
+            "Nottingham Airport",
+            "Oaksey Park Airfield",
+            "Oban Airport",
+            "Old Buckenham Airfield",
+            "Old Sarum Airfield",
+            "Panshanger Aerodrome",
+            "Papa Westray Airport",
+            "Pembrey Airport",
+            "Penzance Heliport",
+            "Perranporth Airfield",
+            "Perth Airport",
+            "Peterborough",
+            "Peterborough Business Airport",
+            "Plymouth",
+            "Popham Airfield",
+            "Portland Heliport",
+            "RAF Abingdon",
+            "RAF Barkston Heath",
+            "RAF Benson",
+            "RAF Boulmer",
+            "RAF Brize Norton",
+            "RAF Coltishall",
+            "RAF Coningsby",
+            "RAF Cosford",
+            "RAF Cranwell",
+            "RAF Dishforth",
+            "RAF Fairford",
+            "RAF Halton",
+            "RAF Henlow",
+            "RAF Honington",
+            "RAF Hullavington",
+            "RAF Lakenheath",
+            "RAF Leeming",
+            "RAF Linton-on-Ouse",
+            "RAF Lossiemouth",
+            "RAF Lyneham",
+            "RAF Marham",
+            "RAF Mildenhall",
+            "RAF Mona",
+            "RAF Northolt",
+            "RAF Odiham",
+            "RAF Scampton",
+            "RAF Shawbury",
+            "RAF Syerston",
+            "RAF Ternhill",
+            "RAF Topcliffe",
+            "RAF Upavon (Disused)",
+            "RAF Waddington",
+            "RAF Wittering",
+            "RAF Woodvale",
+            "RAF Wroughton",
+            "RAF Wyton",
+            "Redhill Aerodrome",
+            "Retford Gamston Airport",
+            "RNAS Culdrose",
+            "RNAS Merryfield",
+            "RNAS Predannack",
+            "RNAS Yeovilton",
+            "Rochester Airport",
+            "Royal Marines Base Chivenor",
+            "Salisbury Plain Aerodrome",
+            "Sanday Airport",
+            "Sandtoft Airfield",
+            "Scatsta",
+            "Seething Airfield",
+            "Sherburn-in-Elmet Airfield",
+            "Shipdham Airfield",
+            "Shobdon Aerodrome",
+            "Shoreham Airport",
+            "Shotton Airfield/Peterlee Parachute Centre",
+            "Shuttleworth Aerodrome",
+            "Silverstone",
+            "Skegness",
+            "Sleap Airfield",
+            "Southampton Airport",
+            "Southport",
+            "St Athan",
+            "St Mary\'s Airport",
+            "Stapleford Aerodrome",
+            "Stornoway Airport",
+            "Stronsay Airport",
+            "Strubby Airfield",
+            "Sturgate Airfield",
+            "Sumburgh Airport",
+            "Swansea Airport",
+            "Sywell Aerodrome",
+            "Tatenhill Airfield",
+            "Teesside International Airport",
+            "Thorne",
+            "Thruxton Aerodrome",
+            "Thurrock",
+            "Tilstock",
+            "Tingwall Airport",
+            "Tiree Airport",
+            "Tresco Heliport",
+            "Truro Aerodrome",
+            "Turweston Aerodrome",
+            "Unst Airport",
+            "Warton Aerodrome",
+            "Wattisham Airfield",
+            "Wellesbourne Mountford Aerodrome",
+            "Welshpool Airport",
+            "West Freugh",
+            "Westray Airport",
+            "Whalsay Airstrip",
+            "White Waltham Airfield",
+            "Wick Airport",
+            "Wickenby Aerodrome",
+            "Wolverhampton Airport",
+            "Wrexham",
+            "Wycombe Air Park",
+            "Yeovil Aerodrome"});
+            this.cmbobx_airports.Location = new System.Drawing.Point(308, 26);
+            this.cmbobx_airports.Name = "cmbobx_airports";
+            this.cmbobx_airports.Size = new System.Drawing.Size(260, 28);
+            this.cmbobx_airports.TabIndex = 5;
+            this.cmbobx_airports.SelectedIndexChanged += new System.EventHandler(this.cmbobx_airports_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -425,7 +706,6 @@ namespace Metar_Taf_Viewer
         private System.Windows.Forms.TabPage tab_synoptic;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView_synoptic;
         private System.Windows.Forms.TabPage tab_egmj;
-        private Microsoft.Web.WebView2.WinForms.WebView2 webView_egmj;
         private System.Windows.Forms.TabPage tab_notams;
         private Microsoft.Web.WebView2.WinForms.WebView2 webView_notams_egmj;
         private System.Windows.Forms.Button btn_navigate_to;
@@ -435,6 +715,8 @@ namespace Metar_Taf_Viewer
         private System.Windows.Forms.GroupBox grpbx_towns;
         private System.Windows.Forms.RadioButton rdobtn_Gt_Gransden;
         private System.Windows.Forms.RadioButton rdobtn_cambridge;
+        public Microsoft.Web.WebView2.WinForms.WebView2 webView_egmj;
+        private System.Windows.Forms.ComboBox cmbobx_airports;
     }
 }
 

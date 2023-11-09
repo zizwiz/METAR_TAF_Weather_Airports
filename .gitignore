@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs
+/archive
+/Metar-Taf Viewer/obj
+/Metar-Taf Viewer/bin/Debug
+/Metar-Taf Viewer/bin/Release
