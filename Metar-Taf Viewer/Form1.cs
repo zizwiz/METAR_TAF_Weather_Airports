@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using CenteredMessagebox;
 using Metar_Taf_Viewer.navigation;
+using Metar_Taf_Viewer.Altimeter;
 
 namespace Metar_Taf_Viewer
 {
@@ -147,6 +149,39 @@ namespace Metar_Taf_Viewer
         {
             webView_browser.CoreWebView2.Navigate("https://metar-taf.com/" + 
                                                   airport.GetMetar(cmbobx_airports.Text));
+        }
+
+        private void btn_calculate_altimiter_Click(object sender, EventArgs e)
+        {
+            //Calculate settings for altitude at destination
+            /*
+             * var values = MyCoolFunction();
+               var firstValue = values.Item1;
+               var secondValue = values.Item2;
+               var thirdValue = values.Item3;
+             */
+
+           var values = altimeter.Calculate_altimeter(txtbx_present_pressure.Text, txtbx_present_altitude.Text, txtbx_to_altitude.Text);
+
+            var firstValue = values.Item1;
+            var secondValue = values.Item2;
+
+            if ((firstValue != "F") && (secondValue != "F"))
+            {
+                lbl_to_pressure.Text = firstValue;
+                lbl_qnh_pressure.Text = secondValue;
+            }
+            else
+            {
+                MsgBox.Show("Check you have filled in all the information correctly", "Incorrect Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_altimeter_reset_Click(object sender, EventArgs e)
+        {
+            // reset all the data
+            txtbx_present_pressure.Text = txtbx_present_altitude.Text = txtbx_to_altitude.Text =
+            lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
         }
 
 

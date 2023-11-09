@@ -57,6 +57,25 @@ namespace Metar_Taf_Viewer
             this.btn_navigate_to = new System.Windows.Forms.Button();
             this.txtbx_navigate_to_url = new System.Windows.Forms.TextBox();
             this.cmbobx_airports = new System.Windows.Forms.ComboBox();
+            this.tab_altimeter = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.grpbx_QNH = new System.Windows.Forms.GroupBox();
+            this.lbl_sea_level_ft = new System.Windows.Forms.Label();
+            this.lbl_qnh_pressure = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_calculate_altimiter = new System.Windows.Forms.Button();
+            this.grpbx_to = new System.Windows.Forms.GroupBox();
+            this.lbl_to_pressure = new System.Windows.Forms.Label();
+            this.lbl_to_mb = new System.Windows.Forms.Label();
+            this.lbl_to_ft = new System.Windows.Forms.Label();
+            this.txtbx_to_altitude = new System.Windows.Forms.TextBox();
+            this.grpbx_present = new System.Windows.Forms.GroupBox();
+            this.lbl_present_mb = new System.Windows.Forms.Label();
+            this.lbl_present_ft = new System.Windows.Forms.Label();
+            this.txtbx_present_pressure = new System.Windows.Forms.TextBox();
+            this.txtbx_present_altitude = new System.Windows.Forms.TextBox();
+            this.btn_altimeter_reset = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -78,6 +97,11 @@ namespace Metar_Taf_Viewer
             ((System.ComponentModel.ISupportInitialize)(this.webView_browser)).BeginInit();
             this.panel3.SuspendLayout();
             this.grpbx_towns.SuspendLayout();
+            this.tab_altimeter.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.grpbx_QNH.SuspendLayout();
+            this.grpbx_to.SuspendLayout();
+            this.grpbx_present.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -116,6 +140,7 @@ namespace Metar_Taf_Viewer
             this.tabControl1.Controls.Add(this.tab_bbc);
             this.tabControl1.Controls.Add(this.tab_synoptic);
             this.tabControl1.Controls.Add(this.tab_browser);
+            this.tabControl1.Controls.Add(this.tab_altimeter);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -651,6 +676,204 @@ namespace Metar_Taf_Viewer
             this.cmbobx_airports.TabIndex = 5;
             this.cmbobx_airports.SelectedIndexChanged += new System.EventHandler(this.cmbobx_airports_SelectedIndexChanged);
             // 
+            // tab_altimeter
+            // 
+            this.tab_altimeter.Controls.Add(this.panel4);
+            this.tab_altimeter.Location = new System.Drawing.Point(4, 29);
+            this.tab_altimeter.Name = "tab_altimeter";
+            this.tab_altimeter.Size = new System.Drawing.Size(1261, 585);
+            this.tab_altimeter.TabIndex = 8;
+            this.tab_altimeter.Text = "Altimeter";
+            this.tab_altimeter.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btn_altimeter_reset);
+            this.panel4.Controls.Add(this.grpbx_QNH);
+            this.panel4.Controls.Add(this.btn_calculate_altimiter);
+            this.panel4.Controls.Add(this.grpbx_to);
+            this.panel4.Controls.Add(this.grpbx_present);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1261, 585);
+            this.panel4.TabIndex = 0;
+            // 
+            // grpbx_QNH
+            // 
+            this.grpbx_QNH.BackColor = System.Drawing.Color.Transparent;
+            this.grpbx_QNH.Controls.Add(this.lbl_sea_level_ft);
+            this.grpbx_QNH.Controls.Add(this.lbl_qnh_pressure);
+            this.grpbx_QNH.Controls.Add(this.label1);
+            this.grpbx_QNH.Controls.Add(this.label2);
+            this.grpbx_QNH.Location = new System.Drawing.Point(228, 198);
+            this.grpbx_QNH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpbx_QNH.Name = "grpbx_QNH";
+            this.grpbx_QNH.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpbx_QNH.Size = new System.Drawing.Size(204, 126);
+            this.grpbx_QNH.TabIndex = 24;
+            this.grpbx_QNH.TabStop = false;
+            this.grpbx_QNH.Text = "QNH";
+            // 
+            // lbl_sea_level_ft
+            // 
+            this.lbl_sea_level_ft.Location = new System.Drawing.Point(15, 34);
+            this.lbl_sea_level_ft.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_sea_level_ft.Name = "lbl_sea_level_ft";
+            this.lbl_sea_level_ft.Size = new System.Drawing.Size(132, 18);
+            this.lbl_sea_level_ft.TabIndex = 25;
+            this.lbl_sea_level_ft.Text = "0";
+            // 
+            // lbl_qnh_pressure
+            // 
+            this.lbl_qnh_pressure.Location = new System.Drawing.Point(15, 74);
+            this.lbl_qnh_pressure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_qnh_pressure.Name = "lbl_qnh_pressure";
+            this.lbl_qnh_pressure.Size = new System.Drawing.Size(132, 18);
+            this.lbl_qnh_pressure.TabIndex = 24;
+            this.lbl_qnh_pressure.Text = "....";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(156, 74);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 31);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "mb";
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(156, 34);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 31);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "ft";
+            // 
+            // btn_calculate_altimiter
+            // 
+            this.btn_calculate_altimiter.Location = new System.Drawing.Point(864, 407);
+            this.btn_calculate_altimiter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_calculate_altimiter.Name = "btn_calculate_altimiter";
+            this.btn_calculate_altimiter.Size = new System.Drawing.Size(174, 52);
+            this.btn_calculate_altimiter.TabIndex = 22;
+            this.btn_calculate_altimiter.Text = "Calculate";
+            this.btn_calculate_altimiter.UseVisualStyleBackColor = true;
+            this.btn_calculate_altimiter.Click += new System.EventHandler(this.btn_calculate_altimiter_Click);
+            // 
+            // grpbx_to
+            // 
+            this.grpbx_to.BackColor = System.Drawing.Color.Transparent;
+            this.grpbx_to.Controls.Add(this.lbl_to_pressure);
+            this.grpbx_to.Controls.Add(this.lbl_to_mb);
+            this.grpbx_to.Controls.Add(this.lbl_to_ft);
+            this.grpbx_to.Controls.Add(this.txtbx_to_altitude);
+            this.grpbx_to.Location = new System.Drawing.Point(832, 198);
+            this.grpbx_to.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpbx_to.Name = "grpbx_to";
+            this.grpbx_to.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpbx_to.Size = new System.Drawing.Size(200, 126);
+            this.grpbx_to.TabIndex = 21;
+            this.grpbx_to.TabStop = false;
+            this.grpbx_to.Text = "Destination QFE";
+            // 
+            // lbl_to_pressure
+            // 
+            this.lbl_to_pressure.Location = new System.Drawing.Point(9, 78);
+            this.lbl_to_pressure.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_to_pressure.Name = "lbl_to_pressure";
+            this.lbl_to_pressure.Size = new System.Drawing.Size(132, 18);
+            this.lbl_to_pressure.TabIndex = 23;
+            this.lbl_to_pressure.Text = "....";
+            // 
+            // lbl_to_mb
+            // 
+            this.lbl_to_mb.Location = new System.Drawing.Point(156, 78);
+            this.lbl_to_mb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_to_mb.Name = "lbl_to_mb";
+            this.lbl_to_mb.Size = new System.Drawing.Size(50, 31);
+            this.lbl_to_mb.TabIndex = 22;
+            this.lbl_to_mb.Text = "mb";
+            // 
+            // lbl_to_ft
+            // 
+            this.lbl_to_ft.Location = new System.Drawing.Point(156, 38);
+            this.lbl_to_ft.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_to_ft.Name = "lbl_to_ft";
+            this.lbl_to_ft.Size = new System.Drawing.Size(26, 31);
+            this.lbl_to_ft.TabIndex = 21;
+            this.lbl_to_ft.Text = "ft";
+            // 
+            // txtbx_to_altitude
+            // 
+            this.txtbx_to_altitude.Location = new System.Drawing.Point(9, 34);
+            this.txtbx_to_altitude.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtbx_to_altitude.Name = "txtbx_to_altitude";
+            this.txtbx_to_altitude.Size = new System.Drawing.Size(136, 26);
+            this.txtbx_to_altitude.TabIndex = 19;
+            // 
+            // grpbx_present
+            // 
+            this.grpbx_present.BackColor = System.Drawing.Color.Transparent;
+            this.grpbx_present.Controls.Add(this.lbl_present_mb);
+            this.grpbx_present.Controls.Add(this.lbl_present_ft);
+            this.grpbx_present.Controls.Add(this.txtbx_present_pressure);
+            this.grpbx_present.Controls.Add(this.txtbx_present_altitude);
+            this.grpbx_present.Location = new System.Drawing.Point(528, 198);
+            this.grpbx_present.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpbx_present.Name = "grpbx_present";
+            this.grpbx_present.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpbx_present.Size = new System.Drawing.Size(204, 126);
+            this.grpbx_present.TabIndex = 20;
+            this.grpbx_present.TabStop = false;
+            this.grpbx_present.Text = "Present QFE";
+            // 
+            // lbl_present_mb
+            // 
+            this.lbl_present_mb.Location = new System.Drawing.Point(156, 74);
+            this.lbl_present_mb.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_present_mb.Name = "lbl_present_mb";
+            this.lbl_present_mb.Size = new System.Drawing.Size(44, 31);
+            this.lbl_present_mb.TabIndex = 18;
+            this.lbl_present_mb.Text = "mb";
+            // 
+            // lbl_present_ft
+            // 
+            this.lbl_present_ft.Location = new System.Drawing.Point(156, 34);
+            this.lbl_present_ft.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_present_ft.Name = "lbl_present_ft";
+            this.lbl_present_ft.Size = new System.Drawing.Size(26, 31);
+            this.lbl_present_ft.TabIndex = 17;
+            this.lbl_present_ft.Text = "ft";
+            // 
+            // txtbx_present_pressure
+            // 
+            this.txtbx_present_pressure.Location = new System.Drawing.Point(9, 69);
+            this.txtbx_present_pressure.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtbx_present_pressure.Name = "txtbx_present_pressure";
+            this.txtbx_present_pressure.Size = new System.Drawing.Size(136, 26);
+            this.txtbx_present_pressure.TabIndex = 16;
+            // 
+            // txtbx_present_altitude
+            // 
+            this.txtbx_present_altitude.Location = new System.Drawing.Point(9, 29);
+            this.txtbx_present_altitude.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtbx_present_altitude.Name = "txtbx_present_altitude";
+            this.txtbx_present_altitude.Size = new System.Drawing.Size(136, 26);
+            this.txtbx_present_altitude.TabIndex = 15;
+            // 
+            // btn_altimeter_reset
+            // 
+            this.btn_altimeter_reset.Location = new System.Drawing.Point(578, 407);
+            this.btn_altimeter_reset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_altimeter_reset.Name = "btn_altimeter_reset";
+            this.btn_altimeter_reset.Size = new System.Drawing.Size(174, 52);
+            this.btn_altimeter_reset.TabIndex = 25;
+            this.btn_altimeter_reset.Text = "Reset";
+            this.btn_altimeter_reset.UseVisualStyleBackColor = true;
+            this.btn_altimeter_reset.Click += new System.EventHandler(this.btn_altimeter_reset_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -684,6 +907,13 @@ namespace Metar_Taf_Viewer
             this.panel3.PerformLayout();
             this.grpbx_towns.ResumeLayout(false);
             this.grpbx_towns.PerformLayout();
+            this.tab_altimeter.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.grpbx_QNH.ResumeLayout(false);
+            this.grpbx_to.ResumeLayout(false);
+            this.grpbx_to.PerformLayout();
+            this.grpbx_present.ResumeLayout(false);
+            this.grpbx_present.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -717,6 +947,25 @@ namespace Metar_Taf_Viewer
         private System.Windows.Forms.RadioButton rdobtn_cambridge;
         public Microsoft.Web.WebView2.WinForms.WebView2 webView_egmj;
         private System.Windows.Forms.ComboBox cmbobx_airports;
+        private System.Windows.Forms.TabPage tab_altimeter;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.GroupBox grpbx_QNH;
+        private System.Windows.Forms.Label lbl_sea_level_ft;
+        private System.Windows.Forms.Label lbl_qnh_pressure;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_calculate_altimiter;
+        private System.Windows.Forms.GroupBox grpbx_to;
+        private System.Windows.Forms.Label lbl_to_pressure;
+        private System.Windows.Forms.Label lbl_to_mb;
+        private System.Windows.Forms.Label lbl_to_ft;
+        private System.Windows.Forms.TextBox txtbx_to_altitude;
+        private System.Windows.Forms.GroupBox grpbx_present;
+        private System.Windows.Forms.Label lbl_present_mb;
+        private System.Windows.Forms.Label lbl_present_ft;
+        private System.Windows.Forms.TextBox txtbx_present_pressure;
+        private System.Windows.Forms.TextBox txtbx_present_altitude;
+        private System.Windows.Forms.Button btn_altimeter_reset;
     }
 }
 
