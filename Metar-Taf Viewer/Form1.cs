@@ -50,6 +50,7 @@ namespace Metar_Taf_Viewer
             webView_synoptic.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
 
             cmbobx_airports.SelectedIndex = 0;
+            cmbobx_altitude.SelectedIndex = 0;
         }
 
         private void btn_navigate_to_Click(object sender, EventArgs e)
@@ -161,6 +162,7 @@ namespace Metar_Taf_Viewer
                var thirdValue = values.Item3;
 
                 (string, string, string)MyFunction()
+
              */
 
             var values = altimeter.Calculate_altimeter(txtbx_present_pressure.Text, txtbx_present_altitude.Text, txtbx_to_altitude.Text);
@@ -184,6 +186,21 @@ namespace Metar_Taf_Viewer
             // reset all the data
             txtbx_present_pressure.Text = txtbx_present_altitude.Text = txtbx_to_altitude.Text =
             lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
+        }
+
+        private void cmbobx_altitude_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbl_qnh_pressure.Text = "";
+            lbl_to_pressure.Text = "";
+
+            if (rdobtn_present.Checked)
+            {
+                txtbx_present_altitude.Text = Altitudes.GetAltitude(cmbobx_altitude.Text);
+            }
+            else
+            {
+                txtbx_to_altitude.Text = Altitudes.GetAltitude(cmbobx_altitude.Text);
+            }
         }
 
 

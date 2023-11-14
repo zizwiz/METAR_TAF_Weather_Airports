@@ -69,5 +69,5 @@ namespace Metar_Taf_Viewer.Altimeter
             }
             return result;
         }
-	}
+    }
 }

@@ -68,6 +68,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="navigation\airport.cs" />
+    <Compile Include="Altimeter\Altitudes.cs" />
     <Compile Include="navigation\Navigation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +101,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="common_data\airport_data.xml" />
     <Content Include="CrystalBall.ico" />
   </ItemGroup>
   <ItemGroup />
