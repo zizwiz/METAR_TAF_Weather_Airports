@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using CenteredMessagebox;
 using Metar_Taf_Viewer.navigation;
 using Metar_Taf_Viewer.Altimeter;
+using Metar_Taf_Viewer.common_data;
 
 namespace Metar_Taf_Viewer
 {
@@ -26,6 +28,9 @@ namespace Metar_Taf_Viewer
 
         private async void Form1_Load(object sender, EventArgs e)
         {
+            //Get the data file from resources and write to file in same dir as the app.
+            File.WriteAllText("airport_data.xml", Properties.Resources.airport_data);
+
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
             grpbx_towns.Visible = false;
@@ -196,11 +201,17 @@ namespace Metar_Taf_Viewer
             if (rdobtn_present.Checked)
             {
                 txtbx_present_altitude.Text = Altitudes.GetAltitude(cmbobx_altitude.Text);
+                lbl_icao_num.Text = airport_data.GetAirportInfo(cmbobx_altitude.Text);
             }
             else
             {
                 txtbx_to_altitude.Text = Altitudes.GetAltitude(cmbobx_altitude.Text);
             }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            File.Delete("airport_data.xml");
         }
 
 

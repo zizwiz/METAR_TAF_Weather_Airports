@@ -104,6 +104,7 @@ namespace Metar_Taf_Viewer
             this.panel24 = new System.Windows.Forms.Panel();
             this.rdobtn_present = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_icao_num = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -150,6 +151,7 @@ namespace Metar_Taf_Viewer
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.panel19.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.panel23.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -1177,6 +1179,7 @@ namespace Metar_Taf_Viewer
             // 
             // panel20
             // 
+            this.panel20.Controls.Add(this.lbl_icao_num);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel20.Location = new System.Drawing.Point(885, 3);
             this.panel20.Name = "panel20";
@@ -1494,6 +1497,15 @@ namespace Metar_Taf_Viewer
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // lbl_icao_num
+            // 
+            this.lbl_icao_num.AutoSize = true;
+            this.lbl_icao_num.Location = new System.Drawing.Point(33, 16);
+            this.lbl_icao_num.Name = "lbl_icao_num";
+            this.lbl_icao_num.Size = new System.Drawing.Size(51, 20);
+            this.lbl_icao_num.TabIndex = 0;
+            this.lbl_icao_num.Text = "label7";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1503,6 +1515,7 @@ namespace Metar_Taf_Viewer
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Metar-Taf Viewer";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1555,6 +1568,8 @@ namespace Metar_Taf_Viewer
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -1638,6 +1653,7 @@ namespace Metar_Taf_Viewer
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rdobtn_present;
+        private System.Windows.Forms.Label lbl_icao_num;
     }
 }
 
