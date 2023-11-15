@@ -5,9 +5,10 @@ namespace Metar_Taf_Viewer.common_data
     class airport_data
     {
 
-        public static string GetAirportInfo(string airport_name)
+        public static string[] GetAirportInfo(string airport_name)
         {
-            string reply = "Unknown";
+            string[] reply = new string[10];
+
 
             try
             {
@@ -22,12 +23,19 @@ namespace Metar_Taf_Viewer.common_data
 
                 foreach (XmlNode data in nodeList)
                 {
-                    reply = data["icao_code"].InnerText;
+                    reply[1] = data["icao_code"].InnerText;
+                    reply[2] = data["airport_name"].InnerText;
+                    reply[3] = data["latitude_deg"].InnerText;
+                    reply[4] = data["latitude_dec"].InnerText;
+                    reply[5] = data["longitude_deg"].InnerText;
+                    reply[6] = data["longitude_dec"].InnerText;
+                    reply[7] = data["elevation_m"].InnerText;
+                    reply[8] = data["elevation_ft"].InnerText;
                 }
             }
             catch
             {
-                reply = "Check the airport name is correct";
+                reply[0] = "Check the airport name is correct";
             }
 
 

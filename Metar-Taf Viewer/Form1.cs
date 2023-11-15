@@ -54,8 +54,8 @@ namespace Metar_Taf_Viewer
             webView_weather_bbc.CoreWebView2.Navigate("https://www.bbc.co.uk/weather/2653941");
             webView_synoptic.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
 
-            cmbobx_airports.SelectedIndex = 0;
-            cmbobx_altitude.SelectedIndex = 0;
+            cmbobx_airport_info.SelectedIndex = 0;
+            cmbobx_airport_info.Visible = false;
         }
 
         private void btn_navigate_to_Click(object sender, EventArgs e)
@@ -70,21 +70,6 @@ namespace Metar_Taf_Viewer
                 Navigation.NavigateTo(txtbx_navigate_to_url.Text, webView_browser);
             }
         }
-
-        //private void NavigateTo()
-        //{
-        //    if (txtbx_navigate_to_url.Text.Substring(0, 5) == "https")
-        //    {
-        //        if (webView_browser != null && webView_browser.CoreWebView2 != null)
-        //        {
-        //            webView_browser.CoreWebView2.Navigate(txtbx_navigate_to_url.Text);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MsgBox.Show("The URL needs to start with https://", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
 
         private void rdobtn_cambridge_CheckedChanged(object sender, EventArgs e)
         {
@@ -117,17 +102,14 @@ namespace Metar_Taf_Viewer
             //someValue = condition ? newValue : someOtherValue;
             //grpbx_towns.Visible = (tabControl1.SelectedTab == tab_bbc);
 
+            cmbobx_airport_info.Visible = false;
+            grpbx_towns.Visible = false;
+
             if ((tabControl1.SelectedTab == tab_bbc) || (tabControl1.SelectedTab == tab_met_office))
             {
                 grpbx_towns.Visible = true;
-
             }
-            else
-            {
-                grpbx_towns.Visible = false;
-            }
-
-
+           
             if (tabControl1.SelectedTab == tab_bbc)
             {
                 string Town = GetTownDisplayed(webView_weather_bbc.Source.ToString());
@@ -142,6 +124,16 @@ namespace Metar_Taf_Viewer
                 rdobtn_Gt_Gransden.Checked = (Town == "gcrbu1fn7");
                 rdobtn_cambridge.Checked = (Town == "u1214b469");
             }
+
+            if (tabControl1.SelectedTab == tab_browser)
+            {
+                cmbobx_airport_info.Visible = true;
+            }
+
+            if (tabControl1.SelectedTab == tab_altimeter)
+            {
+                cmbobx_airport_info.Visible = true;
+            }
         }
 
 
@@ -149,12 +141,6 @@ namespace Metar_Taf_Viewer
         {
             Uri uri = new Uri(url);
             return uri.Segments.Last().TrimEnd('/');
-        }
-
-        private void cmbobx_airports_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            webView_browser.CoreWebView2.Navigate("https://metar-taf.com/" + 
-                                                  airport.GetMetar(cmbobx_airports.Text));
         }
 
         private void btn_calculate_altimiter_Click(object sender, EventArgs e)
@@ -193,19 +179,25 @@ namespace Metar_Taf_Viewer
             lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
         }
 
-        private void cmbobx_altitude_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbobx_airport_info_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbl_qnh_pressure.Text = "";
-            lbl_to_pressure.Text = "";
+            if (tabControl1.SelectedTab == tab_altimeter)
+            {
+                lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
 
-            if (rdobtn_present.Checked)
-            {
-                txtbx_present_altitude.Text = Altitudes.GetAltitude(cmbobx_altitude.Text);
-                lbl_icao_num.Text = airport_data.GetAirportInfo(cmbobx_altitude.Text);
+                if (rdobtn_present.Checked)
+                {
+                    txtbx_present_altitude.Text = airport_data.GetAirportInfo(cmbobx_airport_info.Text)[8];
+                }
+                else
+                {
+                    txtbx_to_altitude.Text = airport_data.GetAirportInfo(cmbobx_airport_info.Text)[8];
+                }
             }
-            else
+            else if (tabControl1.SelectedTab == tab_browser)
             {
-                txtbx_to_altitude.Text = Altitudes.GetAltitude(cmbobx_altitude.Text);
+                webView_browser.CoreWebView2.Navigate("https://metar-taf.com/" +
+                      airport_data.GetAirportInfo(cmbobx_airport_info.Text)[1]);
             }
         }
 
@@ -214,6 +206,7 @@ namespace Metar_Taf_Viewer
             File.Delete("airport_data.xml");
         }
 
+       
 
 
         //void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs args)
