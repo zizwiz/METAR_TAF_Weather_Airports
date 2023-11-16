@@ -82,5 +82,25 @@ namespace Metar_Taf_Viewer.Properties {
                 return ResourceManager.GetString("airport_data", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Microsoft_Web_WebView2_Core {
+            get {
+                object obj = ResourceManager.GetObject("Microsoft_Web_WebView2_Core", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Microsoft_Web_WebView2_WinForms {
+            get {
+                object obj = ResourceManager.GetObject("Microsoft_Web_WebView2_WinForms", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

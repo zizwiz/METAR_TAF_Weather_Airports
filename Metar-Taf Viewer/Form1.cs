@@ -14,8 +14,18 @@ namespace Metar_Taf_Viewer
     {
         public Form1()
         {
+            //if files exist delete them before re-adding 
+            if (File.Exists("Microsoft.Web.WebView2.Core.dll"))File.Delete("Microsoft.Web.WebView2.Core.dll");
+            if (File.Exists("Microsoft.Web.WebView2.WinForms.dll")) File.Delete("Microsoft.Web.WebView2.WinForms.dll");
+            if (File.Exists("airport_data.xml")) File.Delete("airport_data.xml");
+
+            //write the dlls before initialising.
+            File.WriteAllBytes("Microsoft.Web.WebView2.Core.dll", Properties.Resources.Microsoft_Web_WebView2_Core);
+            File.WriteAllBytes("Microsoft.Web.WebView2.WinForms.dll", Properties.Resources.Microsoft_Web_WebView2_WinForms);
+            
             InitializeComponent();
-           // Resize += new EventHandler(Form_Resize);
+            
+            // Resize += new EventHandler(Form_Resize);
             //webView_browser.NavigationStarting += EnsureHttps;
         }
 
@@ -30,7 +40,7 @@ namespace Metar_Taf_Viewer
         {
             //Get the data file from resources and write to file in same dir as the app.
             File.WriteAllText("airport_data.xml", Properties.Resources.airport_data);
-
+            
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
             grpbx_towns.Visible = false;
