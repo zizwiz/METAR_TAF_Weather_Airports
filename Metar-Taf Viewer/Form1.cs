@@ -179,26 +179,35 @@ namespace Metar_Taf_Viewer
             }
         }
 
-        private void btn_altimeter_reset_Click(object sender, EventArgs e)
-        {
-            // reset all the data
-            txtbx_present_pressure.Text = txtbx_present_altitude.Text = txtbx_to_altitude.Text =
-            lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
-        }
-
         private void cmbobx_airport_info_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab == tab_altimeter)
             {
+                string[] data = airport_data.GetAirportInfo(cmbobx_airport_info.Text);
+
                 lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
 
                 if (rdobtn_present.Checked)
                 {
-                    txtbx_present_altitude.Text = airport_data.GetAirportInfo(cmbobx_airport_info.Text)[8];
+                    lbl_p_airport_name.Text = "Airport Name = " + data[2];
+                    lbl_p_icao_code.Text = "ICAO Code = " + data[1];
+                    lbl_p_latitude_deg.Text = "Latitude degrees = " + data[3];
+                    lbl_p_latitude_dec.Text = "Latitude decimal = " + data[4];
+                    lbl_p_longitude_deg.Text = "Longitude degrees = " + data[5];
+                    lbl_p_longitude_dec.Text = "Logitude decimal = " + data[6];
+                    lbl_p_elevation_m.Text = "Elevation = " + data[7] + "m";
+                    txtbx_present_altitude.Text = data[8];
                 }
                 else
                 {
-                    txtbx_to_altitude.Text = airport_data.GetAirportInfo(cmbobx_airport_info.Text)[8];
+                    lbl_d_airport_name.Text = "Airport Name = " + data[2];
+                    lbl_d_icao_code.Text = "ICAO Code = " + data[1];
+                    lbl_d_latitude_deg.Text = "Latitude degrees = " + data[3];
+                    lbl_d_latitude_dec.Text = "Latitude decimal = " + data[4];
+                    lbl_d_longitude_deg.Text = "Longitude degrees = " + data[5];
+                    lbl_d_longitude_dec.Text = "Logitude decimal = " + data[6];
+                    lbl_d_elevation_m.Text = "Elevation = " + data[7] + "m";
+                    txtbx_to_altitude.Text = data[8];
                 }
             }
             else if (tabControl1.SelectedTab == tab_browser)
@@ -263,6 +272,16 @@ namespace Metar_Taf_Viewer
                 txtbx_navigate_to_url.Text = "";
                 cmbobx_airport_info.SelectedIndex = 0;
                 webView_browser.CoreWebView2.Navigate("about:blank");
+            }
+            else if (tabControl1.SelectedTab == tab_altimeter)
+            {
+                txtbx_present_pressure.Text = txtbx_present_altitude.Text = txtbx_to_altitude.Text =
+                    lbl_p_airport_name.Text = lbl_p_icao_code.Text = lbl_p_latitude_deg.Text = 
+                        lbl_p_latitude_dec.Text = lbl_p_longitude_deg.Text = lbl_p_longitude_dec.Text = 
+                            lbl_p_elevation_m.Text = lbl_d_airport_name.Text = lbl_d_icao_code.Text = 
+                                lbl_d_latitude_deg.Text = lbl_d_latitude_dec.Text = lbl_d_longitude_deg.Text =
+                                        lbl_d_longitude_dec.Text = lbl_d_elevation_m.Text =
+                                            lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
             }
 
         }
