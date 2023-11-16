@@ -15,16 +15,16 @@ namespace Metar_Taf_Viewer
         public Form1()
         {
             InitializeComponent();
-            Resize += new EventHandler(Form_Resize);
+           // Resize += new EventHandler(Form_Resize);
             //webView_browser.NavigationStarting += EnsureHttps;
         }
 
-        private void Form_Resize(object sender, EventArgs e)
-        {
-            webView_browser.Size = ClientSize - new System.Drawing.Size(webView_browser.Location);
-            btn_navigate_to.Left = ClientSize.Width - btn_navigate_to.Width;
-            txtbx_navigate_to_url.Width = btn_navigate_to.Left - txtbx_navigate_to_url.Left;
-        }
+        //private void Form_Resize(object sender, EventArgs e)
+        //{
+        //    webView_browser.Size = ClientSize - new System.Drawing.Size(webView_browser.Location);
+        //    btn_navigate_to.Left = ClientSize.Width - btn_navigate_to.Width;
+        //    txtbx_navigate_to_url.Width = btn_navigate_to.Left - txtbx_navigate_to_url.Left;
+        //}
 
         private async void Form1_Load(object sender, EventArgs e)
         {
@@ -34,6 +34,9 @@ namespace Metar_Taf_Viewer
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
             grpbx_towns.Visible = false;
+            grpbx_browser_navigation.Visible = false;
+            cmbobx_airport_info.Visible = false;
+            grpbx_altimeter.Visible = false;
 
             await webView_egmj.EnsureCoreWebView2Async();
             await webView_egss.EnsureCoreWebView2Async();
@@ -46,16 +49,14 @@ namespace Metar_Taf_Viewer
 
             webView_egmj.CoreWebView2.Navigate("https://metar-taf.com/EGMJ");
             webView_egss.CoreWebView2.Navigate("https://metar-taf.com/EGSS");
-            webView_egss.CoreWebView2.Navigate("https://metar-taf.com/EGMJ");
             webView_eggw.CoreWebView2.Navigate("https://metar-taf.com/EGGW");
             webView_notams_egmj.CoreWebView2.Navigate("   https://www.notaminfo.com/ukmap?destination=node%2F39");
             webView_weather_bbc.CoreWebView2.Navigate("https://www.bbc.co.uk/weather/2653941"); //Gamlinggay = 2648899 Gt Gransden = 2648095
             webView_weather_met.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/forecast/u1214b469"); //waresley = gcrbu1fn7
-            webView_weather_bbc.CoreWebView2.Navigate("https://www.bbc.co.uk/weather/2653941");
             webView_synoptic.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
 
             cmbobx_airport_info.SelectedIndex = 0;
-            cmbobx_airport_info.Visible = false;
+            
         }
 
         private void btn_navigate_to_Click(object sender, EventArgs e)
@@ -104,6 +105,8 @@ namespace Metar_Taf_Viewer
 
             cmbobx_airport_info.Visible = false;
             grpbx_towns.Visible = false;
+            grpbx_browser_navigation.Visible = false;
+            grpbx_altimeter.Visible = false;
 
             if ((tabControl1.SelectedTab == tab_bbc) || (tabControl1.SelectedTab == tab_met_office))
             {
@@ -127,12 +130,16 @@ namespace Metar_Taf_Viewer
 
             if (tabControl1.SelectedTab == tab_browser)
             {
+                cmbobx_airport_info.SelectedIndex = 0;
                 cmbobx_airport_info.Visible = true;
+                grpbx_browser_navigation.Visible = true;
             }
 
             if (tabControl1.SelectedTab == tab_altimeter)
             {
+                cmbobx_airport_info.SelectedIndex = 0;
                 cmbobx_airport_info.Visible = true;
+                grpbx_altimeter.Visible = true;
             }
         }
 
@@ -196,8 +203,9 @@ namespace Metar_Taf_Viewer
             }
             else if (tabControl1.SelectedTab == tab_browser)
             {
-                webView_browser.CoreWebView2.Navigate("https://metar-taf.com/" +
-                      airport_data.GetAirportInfo(cmbobx_airport_info.Text)[1]);
+                string URI = "https://metar-taf.com/" + airport_data.GetAirportInfo(cmbobx_airport_info.Text)[1];
+                webView_browser.CoreWebView2.Navigate(URI);
+                txtbx_navigate_to_url.Text = URI;
             }
         }
 
@@ -206,16 +214,57 @@ namespace Metar_Taf_Viewer
             File.Delete("airport_data.xml");
         }
 
-       
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void btn_reset_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tab_egmj)
+            {
+                webView_egmj.CoreWebView2.Navigate("https://metar-taf.com/EGMJ");
+            }
+            else if (tabControl1.SelectedTab == tab_egss)
+            {
+                webView_egss.CoreWebView2.Navigate("https://metar-taf.com/EGSS");
+            }
+            else if (tabControl1.SelectedTab == tab_egmj)
+            {
+                webView_egmj.CoreWebView2.Navigate("https://metar-taf.com/EGMJ");
+            }
+            else if (tabControl1.SelectedTab == tab_eggw)
+            {
+                webView_eggw.CoreWebView2.Navigate("https://metar-taf.com/EGGW");
+            }
+            else if (tabControl1.SelectedTab == tab_notams)
+            {
+                webView_notams_egmj.CoreWebView2.Navigate("   https://www.notaminfo.com/ukmap?destination=node%2F39");
+            }
+            else if (tabControl1.SelectedTab == tab_bbc)
+            {
+                webView_weather_bbc.CoreWebView2.Navigate(
+                    "https://www.bbc.co.uk/weather/2653941"); //Gamlinggay = 2648899 Gt Gransden = 2648095
+                rdobtn_cambridge.Checked = true;
+            }
+            else if (tabControl1.SelectedTab == tab_met_office)
+            {
+                webView_weather_met.CoreWebView2.Navigate(
+                    "https://metoffice.gov.uk/weather/forecast/u1214b469"); //waresley = gcrbu1fn7
+                rdobtn_cambridge.Checked = true;
+            }
+            else if (tabControl1.SelectedTab == tab_synoptic)
+            {
+                webView_synoptic.CoreWebView2.Navigate(
+                    "https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
+            }
+            else if (tabControl1.SelectedTab == tab_browser)
+            {
+                txtbx_navigate_to_url.Text = "";
+                cmbobx_airport_info.SelectedIndex = 0;
+                webView_browser.CoreWebView2.Navigate("about:blank");
+            }
 
-        //void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs args)
-        //{
-        //    String uri = args.Uri;
-        //    if (!uri.StartsWith("https://"))
-        //    {
-        //        args.Cancel = true;
-        //    }
-        //}
+        }
     }
 }
