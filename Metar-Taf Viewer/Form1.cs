@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 using CenteredMessagebox;
 using Metar_Taf_Viewer.navigation;
@@ -14,15 +15,30 @@ namespace Metar_Taf_Viewer
     {
         public Form1()
         {
-            //if files exist delete them before re-adding 
-            if (File.Exists("Microsoft.Web.WebView2.Core.dll"))File.Delete("Microsoft.Web.WebView2.Core.dll");
-            if (File.Exists("Microsoft.Web.WebView2.WinForms.dll")) File.Delete("Microsoft.Web.WebView2.WinForms.dll");
-            if (File.Exists("airport_data.xml")) File.Delete("airport_data.xml");
-
             //write the dlls before initialising.
             File.WriteAllBytes("Microsoft.Web.WebView2.Core.dll", Properties.Resources.Microsoft_Web_WebView2_Core);
             File.WriteAllBytes("Microsoft.Web.WebView2.WinForms.dll", Properties.Resources.Microsoft_Web_WebView2_WinForms);
-            
+
+            string arcitectureProcessArchitecture = System.Runtime.InteropServices.RuntimeInformation.ProcessArchitecture.ToString();
+
+            if (arcitectureProcessArchitecture == "X64")
+            {
+                //64bit 
+                File.WriteAllBytes("WebView2Loader.dll", Properties.Resources._64_WebView2Loader);
+            }
+            else if (arcitectureProcessArchitecture == "X86")
+            {
+                // 32bit
+                File.WriteAllBytes("WebView2Loader.dll", Properties.Resources._32_WebView2Loader);
+            }
+            else if (arcitectureProcessArchitecture == "Arm64")
+            {
+                //ARM64bit 
+                File.WriteAllBytes("WebView2Loader.dll", Properties.Resources.arm64_WebView2Loader);
+            }
+
+
+
             InitializeComponent();
             
             // Resize += new EventHandler(Form_Resize);

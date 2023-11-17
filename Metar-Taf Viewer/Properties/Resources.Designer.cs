@@ -61,6 +61,26 @@ namespace Metar_Taf_Viewer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _32_WebView2Loader {
+            get {
+                object obj = ResourceManager.GetObject("_32_WebView2Loader", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _64_WebView2Loader {
+            get {
+                object obj = ResourceManager.GetObject("_64_WebView2Loader", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;uk_airports&gt;
         ///	&lt;airport_info&gt;
@@ -80,6 +100,16 @@ namespace Metar_Taf_Viewer.Properties {
         internal static string airport_data {
             get {
                 return ResourceManager.GetString("airport_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] arm64_WebView2Loader {
+            get {
+                object obj = ResourceManager.GetObject("arm64_WebView2Loader", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

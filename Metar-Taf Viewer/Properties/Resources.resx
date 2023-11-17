@@ -121,10 +121,19 @@
   <data name="airport_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\common_data\airport_data.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="arm64_WebView2Loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\common_data\arm64_webview2loader.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Microsoft_Web_WebView2_Core" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\common_data\microsoft.web.webview2.core.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="Microsoft_Web_WebView2_WinForms" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\common_data\microsoft.web.webview2.winforms.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_32_WebView2Loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\common_data\32_webview2loader.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_64_WebView2Loader" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\common_data\64_webview2loader.dll;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
