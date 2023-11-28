@@ -40,7 +40,7 @@ namespace Metar_Taf_Viewer
 
 
             InitializeComponent();
-            
+
             // Resize += new EventHandler(Form_Resize);
             //webView_browser.NavigationStarting += EnsureHttps;
         }
@@ -56,7 +56,7 @@ namespace Metar_Taf_Viewer
         {
             //Get the data file from resources and write to file in same dir as the app.
             File.WriteAllText("airport_data.xml", Properties.Resources.airport_data);
-            
+
             Text += " : v" + Assembly.GetExecutingAssembly().GetName().Version; // put in the version number
 
             grpbx_towns.Visible = false;
@@ -72,6 +72,7 @@ namespace Metar_Taf_Viewer
             await webView_weather_bbc.EnsureCoreWebView2Async();
             await webView_synoptic.EnsureCoreWebView2Async();
             await webView_browser.EnsureCoreWebView2Async();
+            await webView_gransden_lodge_weather.EnsureCoreWebView2Async();
 
             webView_egmj.CoreWebView2.Navigate("https://metar-taf.com/EGMJ");
             webView_egss.CoreWebView2.Navigate("https://metar-taf.com/EGSS");
@@ -80,9 +81,10 @@ namespace Metar_Taf_Viewer
             webView_weather_bbc.CoreWebView2.Navigate("https://www.bbc.co.uk/weather/2653941"); //Gamlinggay = 2648899 Gt Gransden = 2648095
             webView_weather_met.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/forecast/u1214b469"); //waresley = gcrbu1fn7
             webView_synoptic.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
+            webView_gransden_lodge_weather.CoreWebView2.Navigate("https://members.camgliding.uk/members/GRLweather.aspx");
 
             cmbobx_airport_info.SelectedIndex = 0;
-            
+
         }
 
         private void btn_navigate_to_Click(object sender, EventArgs e)
@@ -138,7 +140,7 @@ namespace Metar_Taf_Viewer
             {
                 grpbx_towns.Visible = true;
             }
-           
+
             if (tabControl1.SelectedTab == tab_bbc)
             {
                 string Town = GetTownDisplayed(webView_weather_bbc.Source.ToString());
@@ -293,6 +295,11 @@ namespace Metar_Taf_Viewer
                 webView_synoptic.CoreWebView2.Navigate(
                     "https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
             }
+            else if (tabControl1.SelectedTab == tab_gransden_lodge)
+            {
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                    "https://members.camgliding.uk/members/GRLweather.aspx");
+            }
             else if (tabControl1.SelectedTab == tab_browser)
             {
                 txtbx_navigate_to_url.Text = "";
@@ -302,9 +309,9 @@ namespace Metar_Taf_Viewer
             else if (tabControl1.SelectedTab == tab_altimeter)
             {
                 txtbx_present_pressure.Text = txtbx_present_altitude.Text = txtbx_to_altitude.Text =
-                    lbl_p_airport_name.Text = lbl_p_icao_code.Text = lbl_p_latitude_deg.Text = 
-                        lbl_p_latitude_dec.Text = lbl_p_longitude_deg.Text = lbl_p_longitude_dec.Text = 
-                            lbl_p_elevation_m.Text = lbl_d_airport_name.Text = lbl_d_icao_code.Text = 
+                    lbl_p_airport_name.Text = lbl_p_icao_code.Text = lbl_p_latitude_deg.Text =
+                        lbl_p_latitude_dec.Text = lbl_p_longitude_deg.Text = lbl_p_longitude_dec.Text =
+                            lbl_p_elevation_m.Text = lbl_d_airport_name.Text = lbl_d_icao_code.Text =
                                 lbl_d_latitude_deg.Text = lbl_d_latitude_dec.Text = lbl_d_longitude_deg.Text =
                                         lbl_d_longitude_dec.Text = lbl_d_elevation_m.Text =
                                             lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
