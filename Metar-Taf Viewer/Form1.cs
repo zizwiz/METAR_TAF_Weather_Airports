@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Forms;
 using CenteredMessagebox;
 using Metar_Taf_Viewer.navigation;
@@ -62,6 +61,7 @@ namespace Metar_Taf_Viewer
             grpbx_towns.Visible = false;
             grpbx_browser_navigation.Visible = false;
             cmbobx_airport_info.Visible = false;
+            cmbobx_gransden_lodge.Visible = false;
             grpbx_altimeter.Visible = false;
 
             await webView_egmj.EnsureCoreWebView2Async();
@@ -73,6 +73,7 @@ namespace Metar_Taf_Viewer
             await webView_synoptic.EnsureCoreWebView2Async();
             await webView_browser.EnsureCoreWebView2Async();
             await webView_gransden_lodge_weather.EnsureCoreWebView2Async();
+            await webView_rasp.EnsureCoreWebView2Async();
 
             webView_egmj.CoreWebView2.Navigate("https://metar-taf.com/EGMJ");
             webView_egss.CoreWebView2.Navigate("https://metar-taf.com/EGSS");
@@ -82,8 +83,10 @@ namespace Metar_Taf_Viewer
             webView_weather_met.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/forecast/u1214b469"); //waresley = gcrbu1fn7
             webView_synoptic.CoreWebView2.Navigate("https://metoffice.gov.uk/weather/maps-and-charts/surface-pressure");
             webView_gransden_lodge_weather.CoreWebView2.Navigate("https://members.camgliding.uk/members/GRLweather.aspx");
+            webView_rasp.CoreWebView2.Navigate("https://rasp.stratus.org.uk/index.php/meteograms?tp=GRL");
 
             cmbobx_airport_info.SelectedIndex = 0;
+            cmbobx_gransden_lodge.SelectedIndex = 0;
 
         }
 
@@ -132,6 +135,7 @@ namespace Metar_Taf_Viewer
             //grpbx_towns.Visible = (tabControl1.SelectedTab == tab_bbc);
 
             cmbobx_airport_info.Visible = false;
+            cmbobx_gransden_lodge.Visible = false;
             grpbx_towns.Visible = false;
             grpbx_browser_navigation.Visible = false;
             grpbx_altimeter.Visible = false;
@@ -168,6 +172,12 @@ namespace Metar_Taf_Viewer
                 cmbobx_airport_info.SelectedIndex = 0;
                 cmbobx_airport_info.Visible = true;
                 grpbx_altimeter.Visible = true;
+            }
+
+            if (tabControl1.SelectedTab == tab_gransden_lodge)
+            {
+                cmbobx_gransden_lodge.Visible = true;
+                cmbobx_gransden_lodge.SelectedIndex = 0;
             }
         }
 
@@ -297,8 +307,7 @@ namespace Metar_Taf_Viewer
             }
             else if (tabControl1.SelectedTab == tab_gransden_lodge)
             {
-                webView_gransden_lodge_weather.CoreWebView2.Navigate(
-                    "https://members.camgliding.uk/members/GRLweather.aspx");
+                cmbobx_gransden_lodge.SelectedIndex = 0;
             }
             else if (tabControl1.SelectedTab == tab_browser)
             {
@@ -316,7 +325,58 @@ namespace Metar_Taf_Viewer
                                         lbl_d_longitude_dec.Text = lbl_d_elevation_m.Text =
                                             lbl_to_pressure.Text = lbl_qnh_pressure.Text = "";
             }
+            else if (tabControl1.SelectedTab == tab_rasp)
+            {
+                webView_rasp.CoreWebView2.Navigate("https://rasp.stratus.org.uk/index.php/meteograms?tp=GRL");
+            }
 
+        }
+
+        private void cmbobx_gransden_lodge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_gransden_lodge_photo_update.Visible = false;
+
+            if (cmbobx_gransden_lodge.Text == "General Weather")
+            {
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                   "https://members.camgliding.uk/members/GRLweather.aspx");
+            }
+            else if (cmbobx_gransden_lodge.Text == "Navigation Weather")
+            {
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                    "https://members.camgliding.uk/xcplanning/weather.aspx");
+            }
+            else if (cmbobx_gransden_lodge.Text == "Radar Weather")
+            {
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                    "https://members.camgliding.uk/tracking/");
+            }
+            else if (cmbobx_gransden_lodge.Text == "South Camera")
+            {
+                btn_gransden_lodge_photo_update.Visible = true;
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                    "https://members.camgliding.uk/volatile/camsouth.jpg");
+            }
+            else if (cmbobx_gransden_lodge.Text == "West Camera")
+            {
+                btn_gransden_lodge_photo_update.Visible = true;
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                    "https://members.camgliding.uk/volatile/camwest.jpg");
+            }
+        }
+
+        private void btn_gransden_lodge_photo_update_Click(object sender, EventArgs e)
+        {
+            if (cmbobx_gransden_lodge.Text == "South Camera")
+            {
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                    "https://members.camgliding.uk/volatile/camsouth.jpg");
+            }
+            else if (cmbobx_gransden_lodge.Text == "West Camera")
+            {
+                webView_gransden_lodge_weather.CoreWebView2.Navigate(
+                    "https://members.camgliding.uk/volatile/camwest.jpg");
+            }
         }
     }
 }
