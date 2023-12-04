@@ -223,7 +223,7 @@ namespace Metar_Taf_Viewer
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1509, 784);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1617, 784);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -232,7 +232,7 @@ namespace Metar_Taf_Viewer
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 103);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1503, 598);
+            this.panel1.Size = new System.Drawing.Size(1611, 598);
             this.panel1.TabIndex = 0;
             // 
             // tabControl1
@@ -252,7 +252,7 @@ namespace Metar_Taf_Viewer
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1503, 598);
+            this.tabControl1.Size = new System.Drawing.Size(1611, 598);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -1065,7 +1065,7 @@ namespace Metar_Taf_Viewer
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 707);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1503, 74);
+            this.panel2.Size = new System.Drawing.Size(1611, 74);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -1090,16 +1090,16 @@ namespace Metar_Taf_Viewer
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1503, 74);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1611, 74);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // panel25
             // 
             this.panel25.Controls.Add(this.btn_close);
             this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel25.Location = new System.Drawing.Point(1263, 3);
+            this.panel25.Location = new System.Drawing.Point(1351, 3);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(237, 68);
+            this.panel25.Size = new System.Drawing.Size(257, 68);
             this.panel25.TabIndex = 0;
             // 
             // btn_close
@@ -1107,7 +1107,7 @@ namespace Metar_Taf_Viewer
             this.btn_close.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_close.Location = new System.Drawing.Point(0, 0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(237, 68);
+            this.btn_close.Size = new System.Drawing.Size(257, 68);
             this.btn_close.TabIndex = 0;
             this.btn_close.Text = "Close";
             this.btn_close.UseVisualStyleBackColor = true;
@@ -1119,7 +1119,7 @@ namespace Metar_Taf_Viewer
             this.panel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel26.Location = new System.Drawing.Point(3, 3);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(234, 68);
+            this.panel26.Size = new System.Drawing.Size(251, 68);
             this.panel26.TabIndex = 1;
             // 
             // btn_reset
@@ -1127,7 +1127,7 @@ namespace Metar_Taf_Viewer
             this.btn_reset.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_reset.Location = new System.Drawing.Point(0, 0);
             this.btn_reset.Name = "btn_reset";
-            this.btn_reset.Size = new System.Drawing.Size(234, 68);
+            this.btn_reset.Size = new System.Drawing.Size(251, 68);
             this.btn_reset.TabIndex = 0;
             this.btn_reset.Text = "Reset";
             this.btn_reset.UseVisualStyleBackColor = true;
@@ -1137,25 +1137,25 @@ namespace Metar_Taf_Viewer
             // 
             this.panel27.Controls.Add(this.btn_gransden_lodge_photo_update);
             this.panel27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel27.Location = new System.Drawing.Point(318, 3);
+            this.panel27.Location = new System.Drawing.Point(340, 3);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(234, 68);
+            this.panel27.Size = new System.Drawing.Size(251, 68);
             this.panel27.TabIndex = 2;
             // 
             // panel28
             // 
             this.panel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel28.Location = new System.Drawing.Point(633, 3);
+            this.panel28.Location = new System.Drawing.Point(677, 3);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(234, 68);
+            this.panel28.Size = new System.Drawing.Size(251, 68);
             this.panel28.TabIndex = 3;
             // 
             // panel29
             // 
             this.panel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel29.Location = new System.Drawing.Point(948, 3);
+            this.panel29.Location = new System.Drawing.Point(1014, 3);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(234, 68);
+            this.panel29.Size = new System.Drawing.Size(251, 68);
             this.panel29.TabIndex = 4;
             // 
             // panel3
@@ -1164,7 +1164,7 @@ namespace Metar_Taf_Viewer
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1503, 94);
+            this.panel3.Size = new System.Drawing.Size(1611, 94);
             this.panel3.TabIndex = 2;
             // 
             // tableLayoutPanel7
@@ -1186,7 +1186,7 @@ namespace Metar_Taf_Viewer
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1503, 94);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1611, 94);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // panel31
@@ -1552,7 +1552,7 @@ namespace Metar_Taf_Viewer
             this.panel34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel34.Location = new System.Drawing.Point(682, 3);
             this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(818, 88);
+            this.panel34.Size = new System.Drawing.Size(926, 88);
             this.panel34.TabIndex = 3;
             // 
             // grpbx_browser_navigation
@@ -1561,7 +1561,7 @@ namespace Metar_Taf_Viewer
             this.grpbx_browser_navigation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpbx_browser_navigation.Location = new System.Drawing.Point(0, 0);
             this.grpbx_browser_navigation.Name = "grpbx_browser_navigation";
-            this.grpbx_browser_navigation.Size = new System.Drawing.Size(818, 88);
+            this.grpbx_browser_navigation.Size = new System.Drawing.Size(926, 88);
             this.grpbx_browser_navigation.TabIndex = 5;
             this.grpbx_browser_navigation.TabStop = false;
             // 
@@ -1578,7 +1578,7 @@ namespace Metar_Taf_Viewer
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(812, 63);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(920, 63);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // panel35
@@ -1587,7 +1587,7 @@ namespace Metar_Taf_Viewer
             this.panel35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel35.Location = new System.Drawing.Point(3, 3);
             this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(704, 57);
+            this.panel35.Size = new System.Drawing.Size(812, 57);
             this.panel35.TabIndex = 0;
             // 
             // txtbx_navigate_to_url
@@ -1596,7 +1596,7 @@ namespace Metar_Taf_Viewer
             this.txtbx_navigate_to_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_navigate_to_url.Location = new System.Drawing.Point(0, 0);
             this.txtbx_navigate_to_url.Name = "txtbx_navigate_to_url";
-            this.txtbx_navigate_to_url.Size = new System.Drawing.Size(704, 26);
+            this.txtbx_navigate_to_url.Size = new System.Drawing.Size(812, 26);
             this.txtbx_navigate_to_url.TabIndex = 0;
             this.txtbx_navigate_to_url.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtbx_navigate_to_url_KeyPress);
             // 
@@ -1604,7 +1604,7 @@ namespace Metar_Taf_Viewer
             // 
             this.panel36.Controls.Add(this.btn_navigate_to);
             this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel36.Location = new System.Drawing.Point(715, 3);
+            this.panel36.Location = new System.Drawing.Point(823, 3);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(94, 57);
             this.panel36.TabIndex = 1;
@@ -1663,7 +1663,7 @@ namespace Metar_Taf_Viewer
             this.btn_gransden_lodge_photo_update.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_gransden_lodge_photo_update.Location = new System.Drawing.Point(0, 0);
             this.btn_gransden_lodge_photo_update.Name = "btn_gransden_lodge_photo_update";
-            this.btn_gransden_lodge_photo_update.Size = new System.Drawing.Size(234, 68);
+            this.btn_gransden_lodge_photo_update.Size = new System.Drawing.Size(251, 68);
             this.btn_gransden_lodge_photo_update.TabIndex = 0;
             this.btn_gransden_lodge_photo_update.Text = "Update Picture";
             this.btn_gransden_lodge_photo_update.UseVisualStyleBackColor = true;
@@ -1675,7 +1675,7 @@ namespace Metar_Taf_Viewer
             this.tab_rasp.Location = new System.Drawing.Point(4, 29);
             this.tab_rasp.Name = "tab_rasp";
             this.tab_rasp.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_rasp.Size = new System.Drawing.Size(1495, 565);
+            this.tab_rasp.Size = new System.Drawing.Size(1603, 565);
             this.tab_rasp.TabIndex = 10;
             this.tab_rasp.Text = "RASP - Blipmap Forecasts";
             this.tab_rasp.UseVisualStyleBackColor = true;
@@ -1686,7 +1686,7 @@ namespace Metar_Taf_Viewer
             this.panel38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel38.Location = new System.Drawing.Point(3, 3);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(1489, 559);
+            this.panel38.Size = new System.Drawing.Size(1597, 559);
             this.panel38.TabIndex = 0;
             // 
             // webView_rasp
@@ -1697,7 +1697,7 @@ namespace Metar_Taf_Viewer
             this.webView_rasp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webView_rasp.Location = new System.Drawing.Point(0, 0);
             this.webView_rasp.Name = "webView_rasp";
-            this.webView_rasp.Size = new System.Drawing.Size(1489, 559);
+            this.webView_rasp.Size = new System.Drawing.Size(1597, 559);
             this.webView_rasp.TabIndex = 2;
             this.webView_rasp.ZoomFactor = 1D;
             // 
@@ -1705,11 +1705,12 @@ namespace Metar_Taf_Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1509, 784);
+            this.ClientSize = new System.Drawing.Size(1617, 784);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Metar-Taf Viewer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
