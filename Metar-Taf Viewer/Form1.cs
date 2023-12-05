@@ -139,6 +139,7 @@ namespace Metar_Taf_Viewer
             grpbx_towns.Visible = false;
             grpbx_browser_navigation.Visible = false;
             grpbx_altimeter.Visible = false;
+            btn_gransden_lodge_photo_update.Visible = false;
 
             if ((tabControl1.SelectedTab == tab_bbc) || (tabControl1.SelectedTab == tab_met_office))
             {
